@@ -1,0 +1,23 @@
+.CardItemDetail{
+    display: flex;
+    justify-content: center;
+    .ItemImg{
+        width: 45rem;
+        height: auto;
+        margin: 5%;
+    }
+    div{
+        margin: 5%;
+        justify-content: center;
+        background-color: white;
+        .ItemHeader{
+            background-color: white;
+        }
+        .Info{
+            background-color: white;
+        }
+        
+        }
+    }
+    
+
