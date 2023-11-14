@@ -1,8 +1,9 @@
 import { useParams } from "react-router-dom"
 import { useEffect, useState } from "react"
 
-import { mFetch } from "../../helpers/mFetch"
+
 import { ItemDetail } from "../ItemDetail/ItemDetail"
+import { doc, getDoc, getFirestore } from "firebase/firestore"
 
 
 export const ItemDetailContainer = () => {
@@ -10,16 +11,19 @@ export const ItemDetailContainer = () => {
   const { pid } = useParams()
 
   useEffect(() => {
-    mFetch(pid)      
-        .then(result => setProduct(result))
-        .catch(error => console.log(error))
-    }, [])
+  const dbFirestore = getFirestore()
+  const queryDoc = doc(dbFirestore, 'products', pid)
+  getDoc(queryDoc)
+    .then(result => setProduct({ id: result.id, ...result.data() }))
+    .catch(error => console.log(error))
+}, [])
+  console.log(product)
 
-  return (
-    <div >
-      <ItemDetail product={product} />
-    </div>
-  )
+return (
+  <div >
+    <ItemDetail product={product} />
+  </div>
+)
 }
 
 
