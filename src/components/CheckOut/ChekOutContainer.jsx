@@ -65,8 +65,7 @@ export const ChekOutContainer = () => {
         initialValues: {
             nombre: "",
             apellido: "",
-            email: "",
-            telefono: "",
+            email: ""
         },
 
         onSubmit: (data) => {

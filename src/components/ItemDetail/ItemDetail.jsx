@@ -12,7 +12,6 @@ export const ItemDetail = ({ product }) => {
     const onAdd = (quantity) => {
         addToCart({ ...product, quantity })
         setIsCount(false)
-        console.log(product.img)
     }
     return (
         <div>

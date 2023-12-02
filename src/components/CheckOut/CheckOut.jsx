@@ -67,8 +67,8 @@ export const CheckOut = ({ handleChange, handleSubmit, errors, cartList, total }
                                 <input
                                     type="text"
                                     name="emailRepeat"
-
-                                />
+                                    onChange={handleChange}
+                                     />
                             </label>
                             {errors.emailRepeat && (
                                 <span style={{ color: "red" }}>{errors.emailRepeat}</span>
@@ -76,7 +76,7 @@ export const CheckOut = ({ handleChange, handleSubmit, errors, cartList, total }
                         </div>
 
                         <div >
-                            <button >
+                            <button type="submit">
                                 Aceptar
                             </button>
                             <button type="button">Cancelar</button>
