@@ -39,7 +39,7 @@ export const NavBar = () => {
                     </Nav>
                 </Navbar.Collapse>
             </Container>
-            <Link to='/detail'>
+            <Link to='/cart'>
                 <CartWidget />
             </Link>
         </Navbar>

@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom"
 import { useEffect, useState } from "react"
 
 
-import { ItemDetail } from "../ItemDetail/ItemDetail"
+import { ItemDetail } from "./ItemDetail"
 import { doc, getDoc, getFirestore } from "firebase/firestore"
 
 
@@ -17,7 +17,6 @@ export const ItemDetailContainer = () => {
     .then(result => setProduct({ id: result.id, ...result.data() }))
     .catch(error => console.log(error))
 }, [])
-  console.log(product)
 
 return (
   <div >

@@ -3,12 +3,14 @@ import { useParams } from "react-router-dom"
 
 import { collection, getFirestore, getDocs, query, where } from 'firebase/firestore'
 
-import { ItemList } from "../ItemList/ItemList"
+import { ItemList } from "./ItemList"
 
 
 
 export const ItemListContainer = () => {
   const [products, setProducts] = useState([])
+  const [loading, setLoading] = useState(true)
+
   const { cid } = useParams()
 
   useEffect(() => {
@@ -20,6 +22,7 @@ export const ItemListContainer = () => {
       getDocs(queryFilter)
         .then(result => setProducts(result.docs.map(products => ({ id: products.id, ...products.data() }))))
         .catch(error => console.log(error))
+        .finally(()=> setLoading(false))
 
     } else {
       const dbFirestore = getFirestore()
@@ -28,11 +31,17 @@ export const ItemListContainer = () => {
       getDocs(queryCollection)
         .then(result => setProducts(result.docs.map(products => ({ id: products.id, ...products.data() }))))
         .catch(error => console.log(error))
+        .finally(()=> setLoading(false))
     }
   }, [cid])
   return (
+    <>
+    {
+      loading ? <div className="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div> : 
     <div>
       <ItemList products={products} />
     </div>
+    }
+    </>
   )
 }
