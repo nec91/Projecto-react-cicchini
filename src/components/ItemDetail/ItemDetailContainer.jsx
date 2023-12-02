@@ -20,6 +20,8 @@ export const ItemDetailContainer = () => {
     .finally(() => setLoading(false))
 }, [])
 
+console.log(product)
+
 return (
   <>
   {
