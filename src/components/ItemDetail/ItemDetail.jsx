@@ -5,7 +5,7 @@ import { Link } from "react-router-dom"
 import { ItemCount } from "../Count/ItemCount"
 
 
-export const ItemDetail = ({ product }) => {
+export const ItemDetail = ({name, img, price, stock, category,description }) => {
     const [isCount, setIsCount] = useState(true)
     const { addToCart } = useCartContext()
 
@@ -17,26 +17,26 @@ export const ItemDetail = ({ product }) => {
     return (
         <div>
             <article className="CardItemDetail">
-                <img src={product.img} alt={product.name} className="ItemImg" />
+                <img src={img} alt={name} className="ItemImg" />
                 <div>
                     <h2 className="ItemHeader">
-                        {product.name}
+                        {name}
                     </h2>
                     <p className="Info">
-                        Categoría: {product.category}
+                        Categoría: {category}
                     </p>
                     <p className="Info">
-                        Descripción: {product.description}
+                        Descripción: {description}
                     </p>
                     <p className="Info">
-                        Precio: ${product.price}
+                        Precio: ${price}
                     </p>
                     <p className="Info">
-                        Stock: {product.stock}
+                        Stock: {stock}
                     </p>
                     {
                         isCount ?
-                            <ItemCount className="Button" initial={1} stock={product.stock} onAdd={onAdd} />
+                            <ItemCount className="Button" initial={1} stock={stock} onAdd={onAdd} />
                             :
                             <>
                                 <Link className="btn btn-outline-dark " to='/cart'>Ir al cart</Link>
