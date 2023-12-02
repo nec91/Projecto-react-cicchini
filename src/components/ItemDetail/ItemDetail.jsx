@@ -12,16 +12,15 @@ export const ItemDetail = ({ product }) => {
     const onAdd = (quantity) => {
         addToCart({ ...product, quantity })
         setIsCount(false)
+        console.log(product.img)
     }
-    console.log(ItemDetail)
-    console.log(product.img)
     return (
         <div>
             <article className="CardItemDetail">
                 <img src={product.img} alt={product.name} className="ItemImg" />
                 <div>
                     <h2 className="ItemHeader">
-                        {product.name}
+                        {product.name} 
                     </h2>
                     <p className="Info">
                         Categoría: {product.category}
